@@ -1,0 +1,150 @@
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #17141a;
+  color: white;
+  position: relative;
+}
+button {
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+
+   padding: 0;
+  margin: 0;
+  
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding-bottom: 17px;
+  h1 {
+    font-size: 20px;
+    padding-left: 20px;
+  }
+  h1:hover {
+    color:#3b9d8b;
+    
+  }
+  i {
+    font-sixw: 20px;
+    padding-top: 20px;
+  }
+}
+
+main {
+  .search-container{
+    width:100%;
+    height:100px;
+    .search-form{
+      margin:0 auto;
+      width:80%;
+      display:flex;
+      input{
+        width:100%;
+        border-radius:10px;
+        padding:13px;
+        font-size:16px;
+      }
+      input:focus {
+        border:1px solid #3b9d8b;
+        outline: 3px solid #3b9d8b;}
+      button{
+        font-size:24px;
+        padding:16px;
+      }
+
+    }
+  }
+  .main-container {
+    /* background-color:navy;    */
+    padding:0 30px;
+
+    .movieList {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @media screen and (min-width: 1200px) {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      /* background-color:red; */
+      .movie-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        img {
+        }
+        background-color: rgb(0, 0, 0);
+        .movie-info {
+          /* display: flex;
+          flex-direction: column;
+          align-items:center; */
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          border-radius: 20px 20px 0 0;
+        }
+      }
+    }
+  }
+}
+.blur {
+  // 모달 올라왔을 때 배경 어둡게 블러하기
+  filter: brightness(50%);
+}
+.modal {
+  background-color: black;
+  width: 90%;
+  height: 90%;
+  position: fixed;
+  border-radius: 20px;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    .modal-details {
+      position: relative;
+      img {
+        width: 100%;
+
+        margin: 0 auto;
+        display: block;
+        filter: brightness(60%);
+      }
+      .details-container {
+        position: absolute;
+        top: 47%;
+        left: 30px;
+      }
+    }
+    .close-modal {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 30px;
+    }
+  }
+}
+.hidden {
+  display: none;
+}
+//반응형으로 카드의 갯수를 조절하기!

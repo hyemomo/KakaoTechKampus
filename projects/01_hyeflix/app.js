@@ -99,9 +99,9 @@ const showMovieDetail = async (movieId) => {
       <h2>${title}</h2>
       <p>장르:</strong> ${genres}</p>
       <p>상영시간: ${runtime}분</p>
-      <p>평점:⭐ ${vote_average}</p>
+      <p>평점: ${vote_average}</p>
       <p>개봉일: ${release_date}</p>
-      <p>줄거리:< ${overview}</p></div>
+      <p>${overview}</p></div>
     `;
   modal.classList.remove("hidden");
 };

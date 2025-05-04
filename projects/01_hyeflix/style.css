@@ -6,6 +6,17 @@ body {
   color: white;
   position: relative;
 }
+::-webkit-scrollbar{
+    width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background-color:rgb(255, 255, 255); 
+	border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+	border-radius: 10px;
+}
 button {
   border: none;
   background: none;
@@ -109,13 +120,17 @@ main {
 }
 .modal {
   background-color: black;
-  width: 90%;
-  height: 90%;
+  padding:30px;
+   width: 90%;
+  max-width: 900px;
+  height: auto;
+  max-height: 90vh;
   position: fixed;
   border-radius: 20px;
   top: 70px;
   left: 50%;
   transform: translateX(-50%);
+  overflow-y: auto; 
 
   .modal-content {
     width: 100%;
@@ -125,7 +140,6 @@ main {
       position: relative;
       img {
         width: 100%;
-
         margin: 0 auto;
         display: block;
         filter: brightness(60%);

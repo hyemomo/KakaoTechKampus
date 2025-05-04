@@ -74,12 +74,10 @@ const fetchSearchMovies = async () => {
   mainH1.textContent = `"${input_text}"에 대한 검색 결과입니다`;
   mainP.textContent = `검색 결과  ${results.length}개`;
 
-  console.log(results);
   renderMovieCard(results);
 };
 //영화 상세 모달 보여주는 함수
 const showMovieDetail = async (movieId) => {
-  console.log(movieId);
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
     options
@@ -113,7 +111,6 @@ fetchPopularMovies();
 movieList.addEventListener("click", (e) => {
   const li = e.target.closest("li");
   const id = li.id;
-  console.log(id);
   showMovieDetail(id);
 });
 

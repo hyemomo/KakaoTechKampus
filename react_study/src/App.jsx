@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
-function GoodCounter() {
-  const [items, setItems] = useState([1, 2, 3]);
-
-  const addItem = () => {
-    // 새 배열을 생성하고 기존 항목을 복사한 후 새 항목 추가
-    setItems([...items, items.length + 1]); // 불변성 유지
+const App = () => {
+  const [count, setCount] = useState(0);
+  const addCount = () => {
+    setCount((prev) => prev + 1);
   };
-
+  const subCount = () => {
+    setCount((prev) => prev - 1);
+  };
   return (
-    <div>
-      <button onClick={addItem}>Add Item</button>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+    <div style={{ display: "flex" , flexDirection:"column", justifyContent:'center',alignItems:'center'  }}>
+      <h1>{count}</h1>
+      <div>
+        <button onClick={addCount}>+</button>
+        <button onClick={subCount}>-</button>
+      </div>
     </div>
   );
-}
-export default GoodCounter;
+};
+
+export default App;

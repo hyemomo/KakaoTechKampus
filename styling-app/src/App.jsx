@@ -1,14 +1,19 @@
-import React from 'react'
-import Testpage from './components/Testpage'
-import GlobalStyle from './GlobalStayle'
+import React, { useState } from "react";
+import Child from './components/Child';
 
 const App = () => {
+  const [count, setCount] = useState(0);
+  const handlePlus = () => {
+    setCount(count + 1);
+  };
   return (
-    <>
-    <GlobalStyle/>
-      <Testpage title="제목입니다." contents="내용입니다."></Testpage>
-    </>
-  )
-}
+   <div>
+    <h1>여기는 부모 컴포넌트 입니다. </h1>
+    <span>현재 카운트 :{count}</span>
+    <Child count={count} setCount={setCount}/>
+    
+   </div>
+  );
+};
 
-export default App
+export default App;

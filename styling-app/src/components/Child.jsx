@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { FamilyContext } from '../context/FamilyContext';
 
-const Child = ({ setCount}) => {
+function Child() {
+  const stressedWord = {
+    color: "red",
+    fontWeight: "900",
+  };
+  const {houseName, pocketMoney} = useContext(FamilyContext)
 
   return (
     <div>
-        <h3>여기는 자식컴포넌트 입니다. </h3>
-        <button onClick={()=>{setCount(prev=>prev+1)}}>증가</button>
-      
+      나는 이 집안의 막내에요.
+      <br />
+      할아버지가 우리 집 이름은 <span style={stressedWord}>{houseName}</span>
+      라고 하셨어요.
+      <br />
+      게다가 용돈도 <span style={stressedWord}>{pocketMoney}</span>원만큼이나
+      주셨답니다.
     </div>
-  )
+  );
 }
 
-export default Child
+export default Child;

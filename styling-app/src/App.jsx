@@ -1,29 +1,21 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 
 const App = () => {
-  const [value, setValue] = useState("");
+  const ref = useRef("초기값");
   const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.log("아녕녕");
-  }, [count]); //의존성 배열
+  console.log("초기값 => ", ref);
 
+  ref.current = "바꾼 값";
+  console.log("바꾼 값=> ", ref);
   return (
     <div>
-      <h1>useEffect</h1>
-      <input
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        value={value}
-      ></input>
+      <h1>useRef</h1>
       {count}
       <button
         onClick={() => {
-          setCount((prev) => prev + 1);
+          setCount(count+1);
         }}
-      >
-        증가
-      </button>
+      >증가</button>
     </div>
   );
 };

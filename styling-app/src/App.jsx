@@ -1,18 +1,30 @@
-import React, { useState } from "react";
-import Child from './components/Child';
+import React, { use, useEffect, useState } from "react";
 
 const App = () => {
+  const [value, setValue] = useState("");
   const [count, setCount] = useState(0);
-  const handlePlus = () => {
-    setCount(count + 1);
-  };
+  useEffect(() => {
+    console.log("아녕녕");
+  }, [count]); //의존성 배열
+
   return (
-   <div>
-    <h1>여기는 부모 컴포넌트 입니다. </h1>
-    <span>현재 카운트 :{count}</span>
-    <Child count={count} setCount={setCount}/>
-    
-   </div>
+    <div>
+      <h1>useEffect</h1>
+      <input
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        value={value}
+      ></input>
+      {count}
+      <button
+        onClick={() => {
+          setCount((prev) => prev + 1);
+        }}
+      >
+        증가
+      </button>
+    </div>
   );
 };
 

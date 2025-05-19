@@ -1,30 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef } from 'react'
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(0);
-
-  const plusStateHandler = () => {
-    setCount(count + 1);
-  };
-  const plusRefHandler = () => {
-    countRef.current++;
-  };
+  const idRef = useRef('')
+  //최초 렌더링 시에만
+  useEffect(()=>{idRef.current.focus()},[])
   return (
     <div>
-      <h1>state vs ref</h1>
       <div>
-        <h3>state영역</h3>
-        {count}
-        <button  onClick={plusStateHandler}>State 증가</button>
+        아이디 : <input type="text" ref={idRef}></input>
       </div>
       <div>
-        <h3>ref영역</h3>
-        {countRef.current}
-        <button onClick={plusRefHandler}>Ref 증가</button>
+        비밀번호 : <input type="password"></input>
       </div>
     </div>
   );
-};
+}
 
-export default App;
+export default App
+App
